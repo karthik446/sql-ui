@@ -33,11 +33,9 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       width: '100%',
-      maxWidth: 360,
       backgroundColor: theme.palette.background.paper,
       position: 'relative',
       overflow: 'auto',
-      maxHeight: 300,
     },
     listSection: {
       backgroundColor: 'inherit',
@@ -63,7 +61,7 @@ function TableDisplayComponent() {
   const [value, setValue] = React.useState(0);
   const classes = useStyles();
 
-  const baseUrl = '';
+  const baseUrl = 'http://13.82.61.127:5000';
   const handleChangeTab = (_: any, newValue: any) => {
     setValue(newValue);
   };
@@ -130,6 +128,7 @@ function TableDisplayComponent() {
 
   const handleChange = (event: any) => {
     setNlp(event.target.value);
+
   }
 
   const confirmSql = async () => {
@@ -176,45 +175,45 @@ function TableDisplayComponent() {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        <div className="grid">
-          <Grid container spacing={1} >
-            <Grid container item xs={9} spacing={1}>
-              <TextField style={{ width: 600 }}
-                id="standard-basic"
-                label="Enter NLP for SQL"
-                onChange={handleChange} />
-            </Grid>
-            <Grid container item xs={3} spacing={1}>
-              <Button variant="contained" color="primary" onClick={getSql}>
-                Get SQL
+        <div className="grid nlp-container">
+          <div className="nlp-input">
+            <TextField
+              id="standard-basic"
+              label="Enter NLP for SQL"
+              className="nlp-input-text"
+              onChange={handleChange}
+              value={nlp}
+            />
+          </div>
+          <div >
+            <Button variant="contained" color="primary" onClick={getSql}>
+              Get SQL
             </Button>
-            </Grid>
-          </Grid>
+          </div>
+
         </div>
         <div className="grid">
-          <Grid container spacing={1} >
-            <Grid container item xs={9} spacing={1}>
-              <span>{sql}</span>
-            </Grid>
-            {sql ?
-              (<Grid container item xs={3} spacing={1}>
-                <Button variant="contained" color="primary" onClick={confirmSql}>
-                  Execute SQL
+
+          <span>{sql}</span>
+
+          {sql ?
+            (<div>
+              <Button variant="contained" color="primary" onClick={confirmSql}>
+                Execute SQL
             </Button>
-              </Grid>) :
-              (<Fragment></Fragment>)}
-          </Grid>
+            </div>) :
+            (<Fragment></Fragment>)}
         </div>
 
         {sqlresult ?
           (
-            <div className="grid"><List className={classes.root} subheader={<li />}>
+            <div className="table"><List className={classes.root} subheader={<li />}>
               {sqlresult.map((item: any) => (
                 <li key={item} className={classes.listSection}>
                   <ul className={classes.ul}>
                     <ListItem >
                       {item.map((i: string) => (
-                        <ListItemText primary={i} />
+                        <ListItemText primary={i} className="text-item" />
                       ))}
                     </ListItem>
                   </ul>
@@ -255,7 +254,7 @@ function TableDisplayComponent() {
           </Grid>
         </Grid>
 
-        <div className="grid">
+        <div className="db-table">
           <EditableTable
             columns={tableData.columns.map(p => ({ title: p, field: p }))}
             data={tableData.data}

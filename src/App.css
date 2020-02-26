@@ -4,8 +4,30 @@
 }
 .grid {
 margin-top: 2%;
-padding-left: 2%;
-padding-right: 20%;
+padding-left: 0.5rem;
+padding-right: 0.5rem;
+}
+.db-table{
+  margin-top: 5%;
+}
+.text-item{
+  text-align: center;
+}
+.nlp-container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nlp-input{
+  width: 80%;
+}
+.nlp-input-text{
+  width: 80%;
+}
+
+.table{
+  margin-top: 5rem;
 }
 .App-logo {
   height: 40vmin;
