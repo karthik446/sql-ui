@@ -185,12 +185,13 @@ function TableDisplayComponent() {
               value={nlp}
             />
           </div>
-          <div >
-            <Button variant="contained" color="primary" onClick={getSql}>
-              Get SQL
-            </Button>
-          </div>
 
+
+        </div>
+        <div className="grid">
+          <Button variant="contained" color="primary" onClick={getSql}>
+            Get SQL
+            </Button>
         </div>
         <div className="grid">
 
