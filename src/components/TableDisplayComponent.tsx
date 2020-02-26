@@ -63,7 +63,7 @@ function TableDisplayComponent() {
   const [value, setValue] = React.useState(0);
   const classes = useStyles();
 
-  const baseUrl = 'http://13.82.61.127:5000';
+  const baseUrl = '';
   const handleChangeTab = (_: any, newValue: any) => {
     setValue(newValue);
   };
