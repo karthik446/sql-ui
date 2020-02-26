@@ -1,7 +1,12 @@
 .App {
   text-align: center;
-}
 
+}
+.grid {
+margin-top: 2%;
+padding-left: 2%;
+padding-right: 20%;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
