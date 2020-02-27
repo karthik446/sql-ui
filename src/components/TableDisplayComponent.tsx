@@ -198,7 +198,7 @@ function TableDisplayComponent() {
           <span>{sql}</span>
 
           {sql ?
-            (<div>
+            (<div className="grid">
               <Button variant="contained" color="primary" onClick={confirmSql}>
                 Execute SQL
             </Button>
